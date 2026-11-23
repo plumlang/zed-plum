@@ -1,0 +1,4 @@
+# Build output: Zed compiles the extension and the grammar itself.
+/target
+*.wasm
+/grammars

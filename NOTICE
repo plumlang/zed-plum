@@ -1,0 +1,38 @@
+NOTICE
+======
+
+The code in this repository is licensed under the MIT licence (see
+./LICENSE). This file records what that licence does NOT grant.
+
+REPOSITORY
+----------
+
+  Name:        plumlang/zed-plum
+  What it is:  The Plumlang extension for the Zed editor: language
+               configuration, Tree-sitter queries, and the Rust code that
+               starts the `plum lsp` language server.
+
+TRADEMARKS
+----------
+
+The following are trademarks and brand property of Elixpo and are NOT
+licensed by the MIT licence:
+
+  * The name "Plumlang", and "Plum" when used as the name of a programming
+    language, its tools, or its packages.
+  * The Plumlang marks (the plum logos and the lockups that combine them
+    with the name).
+  * The Elixpo name and identity.
+
+You may use, copy, modify and redistribute the code under the MIT licence,
+and you may truthfully say that your work supports or works with Plumlang.
+You may NOT, without written permission from Elixpo, publish a fork of this
+extension, or any other editor extension, under the Plumlang name or marks
+or a confusingly similar name, or present it as the official Plumlang
+extension.
+
+The Tree-sitter grammar (plumlang/tree-sitter-plum), the plum binary and
+its language server (plumlang/plumlang), and the documentation at
+https://plum.elixpo.com are separate projects under their own terms.
+
+Contact: hello@elixpo.com
