@@ -1,0 +1,23 @@
+## What changed
+
+<!-- What and why, in a few sentences. Link the issue: "Closes #123". -->
+
+## Tested
+
+<!-- The tests you ran or added, and on which platforms and compilers (e.g. Linux/GCC 14, macOS/Clang, Windows/MSVC). -->
+
+## Checklist
+
+- [ ] I read [CONTRIBUTING.md](https://github.com/plumlang/plumlang/blob/main/CONTRIBUTING.md) and the rules in [PREAMBLE.md](https://github.com/plumlang/plumlang/blob/main/PREAMBLE.md).
+- [ ] This repository's checks pass with no warnings: `make`, `make test` and `make sanitize test` in plumlang; `npm run lint` and `npm run build` in plum.elixpo and branding.
+- [ ] New behaviour has a test; a fix has the test that would have caught it.
+- [ ] A change to the language updates `docs/spec.md` in this pull request (plumlang).
+- [ ] User-visible changes have a line under `## Unreleased` in `CHANGELOG.md`.
+- [ ] My commits are signed off (`git commit -s`).
+
+---
+
+<sub>I submit this pull request under the Apache License 2.0 and grant Elixpo
+the right to relicense it, as
+[PREAMBLE.md](https://github.com/plumlang/plumlang/blob/main/PREAMBLE.md) rule 1.4 says,
+and confirm I have the right to submit this contribution.</sub>

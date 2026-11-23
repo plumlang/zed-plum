@@ -1,0 +1,73 @@
+# Checks every query in languages/plum against the grammar revision that
+# extension.toml pins, over the Plumlang examples. A query that names a node
+# or field the grammar doesn't have fails here instead of silently in Zed.
+name: Queries
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  queries:
+    name: Check the queries against the grammar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the extension
+        uses: actions/checkout@v4
+        with:
+          path: extension
+
+      - name: Read the grammar revision from extension.toml
+        id: grammar
+        run: |
+          rev=$(sed -n 's/^rev = "\([0-9a-f]*\)"$/\1/p' extension/extension.toml)
+          test -n "$rev"
+          echo "rev=$rev" >> "$GITHUB_OUTPUT"
+
+      - name: Check out the grammar
+        uses: actions/checkout@v4
+        with:
+          repository: plumlang/tree-sitter-plum
+          ref: ${{ steps.grammar.outputs.rev }}
+          path: grammar
+
+      - name: Check out Plumlang (for its examples)
+        uses: actions/checkout@v4
+        with:
+          repository: plumlang/plumlang
+          path: plumlang
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install the tree-sitter CLI
+        run: npm install --global tree-sitter-cli@0.27.2
+
+      - name: Run every query over the examples
+        working-directory: grammar
+        run: |
+          examples=$(find ../plumlang/examples -name '*.plum' | sort)
+          for query in ../extension/languages/plum/*.scm; do
+            echo "::group::$(basename "$query")"
+            # shellcheck disable=SC2086
+            tree-sitter query "$query" $examples > /tmp/captures.txt
+            grep -c 'capture:' /tmp/captures.txt
+            echo "::endgroup::"
+          done
+
+      - name: Check the JSON and TOML files parse
+        working-directory: extension
+        run: |
+          python3 -c 'import json; json.load(open("languages/plum/tasks.json"))'
+          python3 -c 'import tomllib; [tomllib.load(open(f, "rb")) for f in ("extension.toml", "Cargo.toml", "languages/plum/config.toml")]'

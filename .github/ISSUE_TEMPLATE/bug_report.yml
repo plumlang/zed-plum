@@ -1,0 +1,72 @@
+name: Bug report
+description: Plumlang, the website or the VS Code extension doesn't behave as it should.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. The smallest program that shows the bug
+        helps most. Security problems go to a
+        [private advisory](https://github.com/plumlang/plumlang/security/advisories/new), not here.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is the bug?
+      options:
+        - Syntax or parse errors
+        - Type checking
+        - Running a program (wrong result or crash)
+        - Standard library
+        - The plum command (run, repl, fmt, ...)
+        - Building Plumlang from source
+        - Docs or spec
+        - The website (plum.elixpo.com) or the playground
+        - The VS Code extension or brand assets
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Plumlang version
+      description: The output of `plum version`, or the commit you built. For the website or the extension, the page or the extension version.
+      placeholder: "e.g. plum 0.1.0 (abc1234)"
+    validations:
+      required: false
+
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system, and compiler or browser
+      description: Your OS and CPU, and the C compiler if you built from source, or the browser or editor.
+      placeholder: "e.g. Ubuntu 24.04 x86_64, GCC 14"
+    validations:
+      required: false
+
+  - type: textarea
+    id: program
+    attributes:
+      label: Smallest program that shows it, or the steps
+      description: For the website or the extension, the page or the steps to see it.
+      render: plum
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened, and what did you expect?
+      description: Paste the output or error as is.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow the project's [Code of Conduct](https://github.com/plumlang/plumlang/blob/main/CODE_OF_CONDUCT.md).
+          required: true

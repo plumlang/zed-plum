@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Language change or standard library module
+    url: https://github.com/plumlang/plumlang/issues/new/choose
+    about: Proposals for the language and its library have their own forms in plumlang/plumlang.
+  - name: Questions and ideas (Discussions)
+    url: https://github.com/plumlang/plumlang/discussions
+    about: Ask a question or talk an idea through before opening an issue.
+  - name: Commercial licensing
+    url: mailto:hello@elixpo.com
+    about: The optional Plumlang Commercial License, for warranty, support, indemnity or trademark terms Apache-2.0 doesn't give.
+  - name: Security issue
+    url: https://github.com/plumlang/plumlang/security/advisories/new
+    about: Report a vulnerability privately with a security advisory, not a public issue (see docs/SECURITY.md).
