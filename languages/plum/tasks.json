@@ -1,0 +1,17 @@
+[
+  {
+    "label": "plum run $ZED_FILENAME",
+    "command": "plum",
+    "args": ["run", "$ZED_FILE"]
+  },
+  {
+    "label": "plum check $ZED_FILENAME",
+    "command": "plum",
+    "args": ["check", "$ZED_FILE"]
+  },
+  {
+    "label": "plum fmt $ZED_FILENAME",
+    "command": "plum",
+    "args": ["fmt", "$ZED_FILE"]
+  }
+]
