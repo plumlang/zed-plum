@@ -7,14 +7,16 @@ editor, for `.plum` files.
   [Tree-sitter grammar](https://github.com/plumlang/tree-sitter-plum):
   keywords, functions and methods, trees, traits and kinds with their cases,
   types, parameters, fields, strings with `{interpolation}` and
-  `{value:format}`, numbers, comments.
+  `{value:format}`, numbers, comments (`#`, `#[ ... ]#`, `##`).
 - **Outline** (the outline panel and `cmd-shift-o` / `ctrl-shift-o`):
   functions, trees, traits and kinds with their fields, methods and cases,
   and top-level constants.
 - **Brackets and indentation**: matching and rainbow brackets, auto-closed
   `()`, `[]`, `{}`, `"..."` and `"""..."""`, and indentation inside every
   bracket pair, four spaces to a level.
-- **Comments**: toggle line comments (`#`) with `cmd-/` / `ctrl-/`.
+- **Comments**: toggle line comments (`#`) with `cmd-/` / `ctrl-/`; block
+  comments `#[ ... ]#` (nested) and `##` doc comments are highlighted, doc
+  comments in the theme's `comment.doc` colour, and `##` continues on Enter.
 - **Vim text objects**: `af` / `if` for functions and methods, `ac` / `ic`
   for trees, traits and kinds, `gc` for comments.
 - **Language server**: `plum lsp`, built into the `plum` binary, gives

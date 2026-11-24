@@ -45,6 +45,10 @@
     (_)* @class.inside
     "}")) @class.around
 
-; Adjacent line comments
+; Adjacent line comments, doc comments, and block comments
 
 (comment)+ @comment.around
+
+(doc_comment)+ @comment.around
+
+(block_comment) @comment.around
