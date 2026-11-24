@@ -92,7 +92,11 @@ languages/plum/
 The queries are adapted from the ones in
 [tree-sitter-plum](https://github.com/plumlang/tree-sitter-plum) to Zed's
 capture names. CI checks every query against the grammar and the Plumlang
-examples.
+examples, and `script/check-sample.sh` checks them against Plumlang's shared
+highlighting sample ([`tests/highlight/`](https://github.com/plumlang/plumlang/tree/main/tests/highlight)):
+every query runs over `sample.plum`, and `highlights.scm` captures every
+keyword in Plumlang's lexer. It runs on every push and weekly, so a keyword
+added to Plumlang fails here until the queries know it.
 
 ## Links
 
