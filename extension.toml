@@ -1,6 +1,6 @@
 id = "plum"
 name = "Plumlang"
-version = "0.1.0"
+version = "1.0.0"
 schema_version = 1
 authors = ["Circuit-Overtime <ayushman.elixpo@gmail.com>"]
 description = "Plumlang support: syntax highlighting, outline, brackets, indentation and the plum language server."
